@@ -23,6 +23,8 @@ HTTP API requests can be made using Python’s standard urllib2 module.
 import requests
 import json
 import urllib
+
+# Make the HTTP request
 ckan = 'https://geoscience.data.qld.gov.au/api/action/'
 uri = ckan + 'package_search?q=geochemistry'
 response = requests.request("POST", uri)
