@@ -1,4 +1,4 @@
-# GSQ Open Data Portal API
+# GSQ Open Data Portal API Guide
 
 The open data portal provides an API for developers who want to write code that interacts with the open data portal.
 
