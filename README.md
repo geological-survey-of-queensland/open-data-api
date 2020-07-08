@@ -14,6 +14,20 @@ https://geoscience.data.qld.gov.au/api/3/action/package_list
 
 https://geoscience.data.qld.gov.au/api/3/action/recently_changed_packages_activity_list
 
+# Using Python 
+
+HTTP API requests can be made using Python’s standard urllib2 module.
+
+````
+#!/usr/bin/env python
+import requests
+import json
+import urllib
+ckan = 'https://geoscience.data.qld.gov.au/api/action/'
+uri = ckan + 'package_search?q=geochemistry'
+response = requests.request("POST", uri)
+response.json()
+````
 
 # Data elements
 
