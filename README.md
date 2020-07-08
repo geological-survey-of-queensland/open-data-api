@@ -21,8 +21,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 
 |Element|Description|Vocabulary|
 |---|---|---|
-|	dataset_type|The top-level dataset category|electrical, electromagnetic, gravity, gravity-gradiometry, magnetic, magnetotelluric, radiometric, seismic
-spectral, report, geochemistry, borehole, map collection|
+|	dataset_type|The top-level dataset category|electrical, electromagnetic, gravity, gravity-gradiometry, magnetic, magnetotelluric, radiometric, seismic, spectral, report, geochemistry, borehole, map collection|
 |	extra:theme|Broad dataset thematic description|[GSQ Dataset themes](https://vocabs.gsq.digital/vocabulary/gsq-dataset-theme)|
 |	title|Title of the dataset||
 |	name|URL of the dataset persistent identifier|[Read here](https://github.com/geological-survey-of-queensland/persistent-identifiers)|
@@ -62,7 +61,8 @@ spectral, report, geochemistry, borehole, map collection|
 |	resource_fields.resource:format|File format||
 |	resource_fields.resource:size|Byte size||
 
->> **Note:** On early CKAN versions, datasets were called “packages” and this name has stuck in some places, specially internally and on API calls. Package has exactly the same meaning as "dataset".
+
+> **Note:** On early CKAN versions, datasets were called “packages” and this name has stuck in some places, specially internally and on API calls. Package has exactly the same meaning as "dataset".
 
 ## License
 
