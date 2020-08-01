@@ -2,8 +2,7 @@
 
 The open data portal provides an API for developers who want to write code that interacts with the open data portal.
 
-CKAN’s Action API is an RPC-style API that exposes all of CKAN’s core features to API clients. All of a CKAN website’s core functionality (everything you can do with the web interface and more) can be used by external code that calls the CKAN API. See the user guide at:  
-<https://docs.ckan.org/en/2.8/api/>
+CKAN’s Action API is an RPC-style API that exposes all of CKAN’s core features to API clients. All of a CKAN website’s core functionality (everything you can do with the web interface and more) can be used by external code that calls the CKAN API. See the user guide at: <https://docs.ckan.org/en/2.8/api/>
 
 ## Datasets vs Resources
 
@@ -103,11 +102,11 @@ Our CKAN instance uses the SOLR search engine - built on Apache Lucence. You can
 
 You can search any field by typing the field name followed by a colon ":" and then the term you are looking for. As an example, if you want to search the title and the description field, you can enter:
 
-    title:Cloncurry AND text:”radiometric survey”
+    title:Cloncurry AND text:"radiometric survey"
 
 or
 
-    title:”Super Isa Basin” AND “well completion report”
+    title:"Super Isa Basin" AND "well completion report"
 
 Note: Since text is the default field, the field indicator is not required.
 
