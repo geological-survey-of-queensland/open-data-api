@@ -36,16 +36,23 @@ The parameters for the API function should be given in the JSON dictionary. CKAN
 
 HTTP API requests can be made using Python’s standard urllib module. Note that there is a hard limit of 1000 results returned.
 
+**[Requests](https://requests.readthedocs.io/en/master/)** allows you to send HTTP requests easily. There’s no need to manually add query strings to your URLs, or to form-encode your POST data. Keep-alive and HTTP connection pooling are 100% automatic, thanks to [urllib3](https://urllib3.readthedocs.io/en/latest/).
+
 ````python
 import requests
 import json
-import urllib
 
-# Make the HTTP request
-ckan = 'https://geoscience.data.qld.gov.au/api/action/'
-url = ckan + 'package_search?q=quamby'
-response = requests.request("POST", url)
-response.json()
+# set the API endpoint
+api = 'https://geoscience.data.qld.gov.au/api/action/'
+# construct our query
+query = api + 'package_search?q=quamby'
+# make the get request and store it in the response object
+response = requests.get(query)
+# view the payload as JSON
+json_response = response.json()
+print(json_response)
+# print the GeoJSON for the first result
+print(json_response['result']['results'][0]['GeoJSONextent'])
 ````
 
 ## Data elements
