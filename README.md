@@ -243,9 +243,9 @@ This eliminates any confusion and makes sure you that website must exist and eit
 
 Lucene supports using parentheses to group multiple clauses to a single field.
 
-To search for a title that contains both the word "return" and the phrase "pink panther" use the query:
+To search for a title that contains both the word "geologist" and the phrase "love rocks" use the query:
 
-    title:(+return +"pink panther")
+    title:(+geologist +"love rocks")
 
 **Escaping Special Characters**
 
