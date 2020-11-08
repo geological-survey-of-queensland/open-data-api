@@ -38,7 +38,8 @@ HTTP API requests can be made using Python’s standard `urllib` module and the 
 
 **[Requests](https://requests.readthedocs.io/en/master/)** allows you to send HTTP requests easily. There’s no need to manually add query strings to your URLs, or to form-encode your POST data. Keep-alive and HTTP connection pooling are 100% automatic, thanks to [urllib3](https://urllib3.readthedocs.io/en/latest/).
 
-#### Dataset search query
+### Dataset search query
+
 ````python
 import requests
 import json
@@ -62,7 +63,8 @@ for dataset in json_response['result']['results']:
 # ...
 ````
 
-#### Dataset details and resources with [package_show](https://docs.ckan.org/en/2.9/api/#ckan.logic.action.get.package_show)
+### Dataset details and resources with [package_show](https://docs.ckan.org/en/2.9/api/#ckan.logic.action.get.package_show)
+
 ````python
 # Tip: The dataset ID can be found by searching or accessed in the URI
 # Example dataset URI https://geoscience.data.qld.gov.au/report/cr119416
@@ -79,8 +81,10 @@ for resource in response.json()['result']['resources']:
 # ZIP, APPENDIX 4 - DOMAIN MAP GIS PACKAGE, https://geoscience.data.qld.gov.au/dataset/a25f3b2a-1e1d-4ff1-b8e5-9af811df51e8/resource/854b0405-5830-48bc-bc62-4a9e09f66618/download/domain-map-of-northwest-queensland.zip
 ````
 
-#### Search reports by geospatial bounding box
-Note: To search by complex geometry, please use [GeoResGlobe](https://georesglobe.information.qld.gov.au/) or parse the GeoJSONextent attribute of downloaded responses 
+### Search reports by geospatial bounding box
+
+Note: To search by complex geometry, please use [GeoResGlobe](https://georesglobe.information.qld.gov.au/) or parse the GeoJSONextent attribute of downloaded responses.
+
 ````python
 # Note: the dataset search page has an interactive map tool that can generate coordinates
 bbox = [148.7, -26.6, 148.9, -26.5]
@@ -108,21 +112,21 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 
 |Element|Description|Vocabulary|
 |---|---|---|
-|dataset_type|The top-level dataset category|electrical, electromagnetic, gravity, gravity-gradiometry, magnetic, magnetotelluric, radiometric, seismic, spectral, report, geochemistry, borehole, map collection|
-|extra:theme|Broad dataset thematic description|[GSQ Dataset themes](https://vocabs.gsq.digital/vocabulary/gsq-dataset-theme)|
+|type|The top-level dataset category|electrical, electromagnetic, gravity, gravity-gradiometry, magnetic, magnetotelluric, radiometric, seismic, spectral, report, geochemistry, borehole, map collection|
+|extra:theme|Broad dataset thematic description|See [GSQ Dataset themes](https://vocabs.gsq.digital/vocabulary/gsq-dataset-theme)|
 |title|Title of the dataset||
 |name|URL of the dataset persistent identifier|[Read here](https://github.com/geological-survey-of-queensland/persistent-identifiers)|
-|extra:identifier|Dataset persistent identifier|[Read here](https://github.com/geological-survey-of-queensland/persistent-identifiers)|
-|alias|Borehole alias (Borehole dataset only)||
+|extra:identifier|Dataset persistent identifier e.g. CR00123|[Read here](https://github.com/geological-survey-of-queensland/persistent-identifiers)|
+|alias|Borehole alias|
 |notes|Description or abstract of the dataset||
-|georesource_report_type|Georesource report type (Reports only)|[Georesource report](http://vocabs.gsq.digital/vocabulary/georesource-report)|
-|resource_authority_permit|Resource authority identifier (not used in Geochemistry or Map Collection)||
-|owner|Report owner (Report dataset only)|[GSQ Agent Roles](http://vocabs.gsq.digital/vocabulary/gsq-roles)|
-|was_generated_by|The survey that yielded the data (Report datasets only)||
-|earth_science_data_category|Reports and map collections only)|[Earth Science Data Category](http://vocabs.gsq.digital/vocabulary/earth-science-data-category)|
-|commodity|Report dataset only|[Geoscience commodities](http://vocabs.gsq.digital/vocabulary/geo-commodities)|
+|georesource_report_type|Georesource report type|See [Georesource report](http://vocabs.gsq.digital/vocabulary/georesource-report)|
+|resource_authority_permit|Resource authority identifier||
+|owner|Report owner|[GSQ Agent Roles](http://vocabs.gsq.digital/vocabulary/gsq-roles)|
+|was_generated_by|The survey that yielded the data||
+|earth_science_data_category|The field of research for the data|[Earth Science Data Category](http://vocabs.gsq.digital/vocabulary/earth-science-data-category)|
+|commodity|Commodities mentioned in the dataset|[Geoscience commodities](http://vocabs.gsq.digital/vocabulary/geo-commodities)|
 |geologic_feature|Geological feature of interest (Report dataset and Dataset only)|[Geologic Feature Types](https://vocabs.gsq.digital/vocabulary/geofeatures)|
-|geoadmin_feature|Feature of interest (Geochemistry dataset - Block name)|[GeoAdmin Feature](https://vocabs.gsq.digital/vocabulary/geoadminfeatures)|
+|geoadmin_feature|Administrative feature of interest|[GeoAdmin Feature](https://vocabs.gsq.digital/vocabulary/geoadminfeatures)|
 |borehole_purpose|Borehole datasets only|[Borehole purpose](http://vocabs.gsq.digital/vocabulary/borehole-purpose)
 |borehole_sub_purpose|Borehole datasets only|[Borehole sub-purpose](http://vocabs.gsq.digital/vocabulary/borehole-sub-purpose)|
 |borehole_class|Borehole datasets only|[Borehole class](http://linked.data.gov.au/def/resource-project-lifecycle/borehole-class)|
@@ -131,22 +135,73 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 |contractor|Survey datasets||
 |job_number|Survey datasets||
 |survey_method|Survey datasets|[Sampling method](https://vocabs.gsq.digital/vocabulary/sampling-method)|
-|observation_method||[Observation method](https://vocabs.gsq.digital/vocabulary/geological-observation-method)|
+|observation_method|Survey observation method|[Observation method](https://vocabs.gsq.digital/vocabulary/geological-observation-method)|
 |observation_instrument|Used in all Survey datasets||
-|survey_resolution|Survey interval in metres (not used in Seismic surveys)||
-|survey_lines|Electrical, magnetic and seismic surveys||
-|status|Satus (Surveys and Borehole dataset only)|[Borehole status](http://linked.data.gov.au/def/site-status/borehole-status)|
+|survey_resolution|Survey interval in metres||
+|survey_lines|For electrical, magnetic and seismic surveys||
+|status|Satus of the survey or borehole|[Borehole status](http://linked.data.gov.au/def/site-status/borehole-status)|
 |dataset_start_date|Temporal start date||
 |dataset_completion_date|Temporal end date||
-|GeoJSONextent|Detailed spatial extents of the dataset in GeoJSON||
-|spatial|Bounding box in GeoJSON||
-|extra:access_rights|Data access rights|[Data access rights](http://vocabs.gsq.digital/vocabulary/data-access-rights)|
+|GeoJSONextent|Detailed spatial extents of the dataset in GeoJSON|See [GeoJSON](https://github.com/geological-survey-of-queensland/spatial-coordinate-handling/blob/master/geosjon.md)|
+|spatial|Bounding box in GeoJSON|See [GeoJSON](https://github.com/geological-survey-of-queensland/spatial-coordinate-handling/blob/master/geosjon.md)|
+|extra:access_rights|Data access rights|See [Data access rights](http://vocabs.gsq.digital/vocabulary/data-access-rights)|
 |open_file_date|Date dataset became open data||
-|resource_fields.url|Resource URL||
-|resource_fields.name|Resource name||
-|resource_fields.resource:description|Resource description||
-|resource_fields.resource:format|File format||
-|resource_fields.resource:size|Byte size||
+|resources.package_id|The id of the dataset that the resource belongs to||
+|resources.url|Resource URL||
+|resources.name|Resource name||
+|resources.resource:description|Resource description||
+|resources.resource:format|Resoure file format||
+|resources.resource:size|Resource byte size||
+
+## Field lists by dataset type
+
+### report
+
+GeoJSONextent, commodity, dataset_completion_date, dataset_start_date, earth_science_data_category, extra:access_rights, extra:identifier, georesource_report_type, license_id, name, notes, open_file_date, owner, owner_org, private, resource_authority_permit, spatial, title, type, was_generated_by
+
+### borehole
+
+GeoJSONextent, alias, borehole_class, borehole_purpose, borehole_sub_purpose, dataset_start_date, extra:access_rights, extra:identifier, license_id, name, notes, open_file_date, operator, owner_org, private, resource_authority_permit, rig_release_date, spatial, status, title,type
+
+### seismic
+
+GeoJSONextent, contractor, dataset_completion_date, dataset_start_date, extra:access_rights, extra:identifier, license_id, name, notes, observation_instrument, observation_method, open_file_date, operator, owner_org, private, resource_authority_permit, spatial, status, survey_method, title, type
+
+### magnetic
+
+GeoJSONextent, contractor, dataset_completion_date, extra:access_rights, extra:identifier, license_id, name, notes,observation_instrument,observation_method,open_file_date,operator,owner_org,private,resource_authority_permit,spatial,status,survey_method,title,type
+
+### radiometric
+
+GeoJSONextent, contractor, dataset_completion_date, extra:access_rights, extra:identifier, license_id, name, notes, observation_instrument, observation_method, open_file_date, operator, owner_org, private, spatial, status, survey_method, title, type
+
+### electromagnetic
+
+GeoJSONextent, contractor, dataset_completion_date, extra:access_rights, extra:identifier, license_id, name, notes, observation_instrument, observation_method, open_file_date, operator, owner_org, private, resource_authority_permit, spatial, status, survey_method, title, type
+
+### gravity
+
+GeoJSONextent, contractor, dataset_start_date, extra:access_rights, extra:identifier, license_id, name, notes, observation_instrument, observation_method, open_file_date, operator, owner_org, private, resource_authority_permit, spatial, status, survey_method, title, type
+
+### spectral
+
+GeoJSONextent, contractor, extra:access_rights, extra:identifier, license_id, name, notes, observation_instrument, observation_method, open_file_date, operator, owner_org, private, spatial, status, survey_method, title, type
+
+### dataset
+
+GeoJSONextent, dataset_start_date, dataset_end_date, earth_science_data_category, extra:identifier, extra:theme, license_id, name, notes, owner_org, private, spatial, title, type
+
+### gravity-gradiometry
+
+GeoJSONextent, contractor, dataset_completion_date, extra:access_rights, extra:identifier, license_id, name, notes, observation_instrument, observation_method, open_file_date, operator, owner_org, private, resource_authority_permit, spatial, status, survey_method, title, type
+
+### map-collection
+
+GeoJSONextent, dataset_start_date, earth_science_data_category, extra:access_rights, extra:identifier, extra:theme, license_id, map_series, name, notes, open_file_date, owner_org, private, spatial, title, type
+
+### magnetotelluric
+
+GeoJSONextent, contractor, dataset_completion_date, dataset_start_date, extra:identifier, job_number, license_id, name, notes, observation_instrument, observation_method, operator, owner_org, private, spatial, status, survey_method, survey_resolution, title, type
 
 ## Leveraging the SOLR search engine
 
