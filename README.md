@@ -153,7 +153,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 |resources.resource:format|Resoure file format||
 |resources.resource:size|Resource byte size||
 
-## Field lists by dataset type
+## Data elements by dataset type
 
 ### report
 
