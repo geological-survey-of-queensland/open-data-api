@@ -2,7 +2,7 @@
 
 The open data portal provides an API for developers who want to write code that interacts with the open data portal.
 
-CKAN’s Action API is an RPC-style API that exposes all of CKAN’s core features to API clients. All of a CKAN website’s core functionality (everything you can do with the web interface and more) can be used by external code that calls the CKAN API. See the user guide at: <https://docs.ckan.org/en/2.9/api/>
+CKAN’s Action API is an RPC-style API that exposes all of CKAN’s core features to API clients. All of a CKAN website’s core functionality (everything you can do with the web interface and more) can be used by external code that calls the CKAN API. See the user guide at: <https://docs.ckan.org/en/2.9/api/> for an overview and <https://docs.ckan.org/en/2.9/api/#api-guide> for more specific instructions.
 
 ## Datasets vs Resources
 
