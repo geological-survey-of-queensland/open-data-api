@@ -134,7 +134,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 |operator|Borehole and Survey datasets||
 |contractor|Survey datasets||
 |job_number|Survey datasets||
-|survey_method|Survey datasets|[Sampling method](https://vocabs.gsq.digital/vocabulary/sampling-method)|
+|survey_method|Survey datasets|[Survey method](https://vocabs.gsq.digital/vocabulary/survey-method)|
 |observation_method|Survey observation method|[Observation method](https://vocabs.gsq.digital/vocabulary/geological-observation-method)|
 |observation_instrument|Used in all Survey datasets||
 |survey_resolution|Survey interval in metres||
