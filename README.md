@@ -1,5 +1,9 @@
 # GSQ Open Data Portal API Guide
 
+## Bulk Download of New Release Reports, March 2021
+With the Queensland Government's recent changes to the way confidentiality applies to reports, the Geological Survey of Queensland now has the opportunity to release a range of reports which were previously embargoed to the public. For those who want to access and download all 20000+ reports in one go, we offer a customised python script and the required accompanying CSV file. These two files are available on this page, in the files listed above. You will need both to download the reports in bulk. Instructions are included within the python script, and more information on using our Open Data Portal API is available below. 
+
+## API User Guide
 The open data portal provides an API for developers who want to write code that interacts with the open data portal.
 
 CKAN’s Action API is an RPC-style API that exposes all of CKAN’s core features to API clients. All of a CKAN website’s core functionality (everything you can do with the web interface and more) can be used by external code that calls the CKAN API. See the user guide at: <https://docs.ckan.org/en/2.9/api/> for an overview and <https://docs.ckan.org/en/2.9/api/#api-guide> for more specific instructions.
