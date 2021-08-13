@@ -128,7 +128,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 |owner|Report owner|[GSQ Agent Roles](http://vocabs.gsq.digital/vocabulary/gsq-roles)|
 |was_generated_by|The survey that yielded the data||
 |earth_science_data_category|The field of research for the data|[Earth Science Data Category](http://vocabs.gsq.digital/vocabulary/earth-science-data-category)|
-|commodity|Commodities mentioned in the dataset|[Geoscience commodities](http://vocabs.gsq.digital/vocabulary/geo-commodities)|
+|vocab_commodity|Commodities mentioned in the dataset|[Geoscience commodities](http://vocabs.gsq.digital/vocabulary/geo-commodities)|
 |geologic_feature|Geological feature of interest (Report dataset and Dataset only)|[Geologic Feature Types](https://vocabs.gsq.digital/vocabulary/geofeatures)|
 |geoadmin_feature|Administrative feature of interest|[GeoAdmin Feature](https://vocabs.gsq.digital/vocabulary/geoadminfeatures)|
 |borehole_purpose|Borehole datasets only|[Borehole purpose](http://vocabs.gsq.digital/vocabulary/borehole-purpose)
@@ -161,7 +161,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 
 ### report
 
-GeoJSONextent, commodity, dataset_completion_date, dataset_start_date, earth_science_data_category, extra:access_rights, extra:identifier, georesource_report_type, license_id, name, notes, open_file_date, owner, owner_org, private, resource_authority_permit, spatial, title, type, was_generated_by
+GeoJSONextent, vocab_commodity, dataset_completion_date, dataset_start_date, earth_science_data_category, extra:access_rights, extra:identifier, georesource_report_type, license_id, name, notes, open_file_date, owner, owner_org, private, resource_authority_permit, spatial, title, type, was_generated_by
 
 ### borehole
 
