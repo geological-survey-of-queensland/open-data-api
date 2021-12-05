@@ -30,11 +30,24 @@ The parameters for the API function should be given in the JSON dictionary. CKAN
 
 ## Example queries
 
+Search for a list of contents
 <https://geoscience.data.qld.gov.au/api/3/action/package_list>
 
+Search for a specific seismic survey
 <https://geoscience.data.qld.gov.au/api/3/action/package_show?id=ss095544>
 
+Search for new datasets and changes to existing data
 <https://geoscience.data.qld.gov.au/api/3/action/recently_changed_packages_activity_list>
+
+Search for all Petroleum Well Completion reports
+<https://geoscience.data.qld.gov.au/api/3/action/package_search?fq=+type:report%20+vocab_commodity:*petroleum%20+georesource_report_type:*well-completion-report>
+
+Search for all datasets about boreholes
+<https://geoscience.data.qld.gov.au/api/3/action/package_search?q=type:borehole> 
+
+Show a specific report
+<https://geoscience.data.qld.gov.au/api/3/action/package_show?q=type:report&id=cr072299>
+
 
 ## Using Python
 
