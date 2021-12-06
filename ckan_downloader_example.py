@@ -1,8 +1,8 @@
 """
 This python script provides an example of how bulk reports and datasets can be downloaded directly
 from GSQ's Open Data Portal using API calls.
-You will need to have prepared a csv file containing the PID and Titles of the Reports you want 
-to download, here called 'Datasets.csv'
+You will need to have prepared a csv file containing the PID of the Reports you want 
+to download, here called 'Datasets.csv' (change the variable in the script to suit your CSV file)
 
 Author: Eric McCowan
 November 2020
@@ -18,7 +18,6 @@ from pathlib import Path
 CSV_FILE = 'Datasets.csv'
 CKAN_URL = 'https://geoscience.data.qld.gov.au/api/action/'
 DATA_DIR = 'downloads'
-TITLE_FIELD = 'Report Title'
 ID_FIELD = 'PID'
 
 if __name__ == '__main__':
@@ -35,7 +34,7 @@ if __name__ == '__main__':
 
             # Get the dataset PID
             dataset = row[ID_FIELD]
-            print('Starting report {}: {}'.format(dataset, row[TITLE_FIELD]))
+            print('Starting report {}'.format(dataset))
 
             # Make an API call to the Data Portal for the dataset details
             response = requests.get(CKAN_URL + 'package_show', dict(id=dataset))
