@@ -2,7 +2,7 @@
 This python script provides an example of how bulk reports and datasets can be downloaded directly
 from GSQ's Open Data Portal using API calls.
 You will need to have prepared a csv file containing the PID of the Reports you want 
-to download, here called 'Datasets.csv' (change the variable in the script to suit your CSV file)
+to download, here called 'Datasets.csv' (change the variable in the script to match your CSV file)
 
 Author: Eric McCowan
 November 2020
