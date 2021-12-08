@@ -48,6 +48,10 @@ Search for all datasets about boreholes
 Show a specific report
 <https://geoscience.data.qld.gov.au/api/3/action/package_show?q=type:report&id=cr072299>
 
+Search for all mineral permit final reports that became open file since beginning of November 2021
+<https://geoscience.data.qld.gov.au/api/3/action/package_search?fq=+georesource_report_type:*permit-report-final+open_file_date:[2021-11-01T00:00:00Z%20TO%20NOW]>
+
+
 
 ## Using Python
 
