@@ -40,7 +40,7 @@ From a script, to call the CKAN API, post a JSON dictionary in an HTTP GET or PO
 The parameters for the API function should be given in the JSON dictionary. 
 An example using python code: 
 
-  response = requests.get('https://geoscience.data.qld.gov.au/api/3/action/' + 'package_search',
+    response = requests.get('https://geoscience.data.qld.gov.au/api/3/action/' + 'package_search',
                    params={
                        'ext_bbox':[148.7, -26.6, 148.9, -26.5],
                        'fq':[
