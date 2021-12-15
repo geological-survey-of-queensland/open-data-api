@@ -23,10 +23,30 @@ A dataset contains two things:
 
 ## Making an API request
 
-To call the CKAN API, post a JSON dictionary in an HTTP GET or POST request to the CKAN API URL  
+An API call has three parts; the API address, the action requested and any filters on the data to be returned.
+
+The address for the GSQ's Open Data Portal API is <https://geoscience.data.qld.gov.au/api/3/action/> 
+The action requested can be one of several types, usually 'package_search' or 'package_show', see <https://docs.ckan.org/en/tracking-fixes/api.html> for more options.
+The filters possible are many and varied, and are described below in the 'data elements' section. Multiple filters can be used in conjunction to really narrow down on your search results. Filters often start with 'q?=' or 'fq?=' and multiple filters can be joined using the '+' symbol in your query.
+
+The API call can be typed directly into your browser or used in a script. 
+If using in your browser, add a JSON Extension to your browser to make the returned data easier to read.
+
+From a script, to call the CKAN API, post a JSON dictionary in an HTTP GET or POST request to the CKAN API URL  
 <https://geoscience.data.qld.gov.au/api/3/action/>
 
-The parameters for the API function should be given in the JSON dictionary. CKAN will also return its response in a JSON dictionary. CKAN always tries to respond with a 200 status code, so in case of failure the 'success' flag in the response should be checked. 
+The parameters for the API function should be given in the JSON dictionary. 
+An example using python code: 
+response = requests.get('https://geoscience.data.qld.gov.au/api/3/action/' + 'package_search',
+                   params={
+                       'ext_bbox':[148.7, -26.6, 148.9, -26.5],
+                       'fq':[
+                           'type:report',
+                           'earth_science_data_category:geochemistry'
+                       ]
+                   })
+                   
+CKAN will also return its response in a JSON dictionary. CKAN always tries to respond with a 200 status code, so in case of failure the 'success' flag in the response should be checked. 
 
 ## Example queries
 
@@ -276,9 +296,11 @@ Lucene supports finding words are a within a specific distance away. To do a pro
 
 Range Queries allow one to match documents whose field(s) values are between the lower and upper bound specified by the Range Query. Range Queries can be inclusive or exclusive of the upper and lower bounds. Sorting is done lexicographically.
 
-    mod_date:[20020101 TO 20030101]
+    metadata_modified:[2020-11-01T00:00:00Z TO 2021-11-30T00:00:00Z]
 
-This will find documents whose mod_date fields have values between 20020101 and 20030101, inclusive. Note that Range Queries are not reserved for date fields. You could also use range queries with non-date fields:
+This will find documents whose metadata_modified fields have values between 2020-11-01 and 2020-11-30, inclusive. Note that the time component 'T00:00:00Z' should be included with the date.
+
+Range Queries are not reserved for date fields. You could also use range queries with non-date fields:
 
     title:{Adavale TO Camooweal}
 
@@ -390,7 +412,7 @@ This code repository's content are licensed under the [Creative Commons Attribut
 **Geological Survey of Quensland**  
 Department of Natural Resources, Mines and Energy  
 Queensland, Australia  
-<GSQOpenData@dnrme.qld.gov.au>  
+<GSQOpenData@resources.qld.gov.au>  
 
 *Author*:  
 **David Crosswell**  
