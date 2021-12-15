@@ -26,7 +26,9 @@ A dataset contains two things:
 An API call has three parts; the API address, the action requested and any filters on the data to be returned.
 
 The address for the GSQ's Open Data Portal API is <https://geoscience.data.qld.gov.au/api/3/action/> 
+
 The action requested can be one of several types, usually 'package_search' or 'package_show', see <https://docs.ckan.org/en/tracking-fixes/api.html> for more options.
+
 The filters possible are many and varied, and are described below in the 'data elements' section. Multiple filters can be used in conjunction to really narrow down on your search results. Filters often start with 'q?=' or 'fq?=' and multiple filters can be joined using the '+' symbol in your query.
 
 The API call can be typed directly into your browser or used in a script. 
