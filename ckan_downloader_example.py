@@ -2,7 +2,14 @@
 This python script provides an example of how bulk reports and datasets can be downloaded directly
 from GSQ's Open Data Portal using API calls.
 You will need to have prepared a csv file containing the PID of the Reports you want 
-to download, here called 'Datasets.csv' (change the variable in the script to match your CSV file)
+to download, here called 'Datasets.csv' (change the variable in the script to match your CSV file name)
+
+The csv should have a column called 'report_pid' which contains the report PIDs that are
+formatted like 'cr090134' 
+
+If you get the error KeyError: 'report_pid' then you can tweak how the csv is read in by 
+changing row 37 to reader = csv.reader(csvfile) and row 43 to dataset = row[i] where the i variable
+is the csv column number that contains the report_pids (remember, python counts from 0)
 
 Author: Eric McCowan
 November 2020
@@ -17,8 +24,8 @@ from pathlib import Path
 
 CSV_FILE = 'Datasets.csv'
 CKAN_URL = 'https://geoscience.data.qld.gov.au/api/action/'
-DATA_DIR = 'downloads'
-ID_FIELD = 'PID'
+DATA_DIR = 'bulk_downloaded_reports_of_interest'
+ID_FIELD = 'report_pid'
 
 if __name__ == '__main__':
 
