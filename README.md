@@ -23,18 +23,58 @@ A dataset contains two things:
 
 ## Making an API request
 
-To call the CKAN API, post a JSON dictionary in an HTTP GET or POST request to the CKAN API URL  
+An API call has three parts; the API address, the action requested and any filters on the data to be returned.
+
+The address for the GSQ's Open Data Portal API is <https://geoscience.data.qld.gov.au/api/3/action/> 
+
+The action requested can be one of several types, usually 'package_search' or 'package_show', see <https://docs.ckan.org/en/tracking-fixes/api.html> for more options.
+
+The filters possible are many and varied, and are described below in the 'data elements' section. Multiple filters can be used in conjunction to really narrow down on your search results. Filters often start with 'q?=' or 'fq?=' and multiple filters can be joined using the '+' symbol in your query.
+
+The API call can be typed directly into your browser or used in a script. 
+If using in your browser, add a JSON Extension to your browser to make the returned data easier to read.
+
+From a script, to call the CKAN API, post a JSON dictionary in an HTTP GET or POST request to the CKAN API URL  
 <https://geoscience.data.qld.gov.au/api/3/action/>
 
-The parameters for the API function should be given in the JSON dictionary. CKAN will also return its response in a JSON dictionary. CKAN always tries to respond with a 200 status code, so in case of failure the 'success' flag in the response should be checked. 
+The parameters for the API function should be given in the JSON dictionary. 
+An example using python code: 
+
+    response = requests.get('https://geoscience.data.qld.gov.au/api/3/action/' + 'package_search',
+                   params={
+                       'ext_bbox':[148.7, -26.6, 148.9, -26.5],
+                       'fq':[
+                           'type:report',
+                           'earth_science_data_category:geochemistry'
+                       ]
+                   })
+                   
+CKAN will also return its response in a JSON dictionary. CKAN always tries to respond with a 200 status code, so in case of failure the 'success' flag in the response should be checked. 
 
 ## Example queries
 
+Search for a list of contents
 <https://geoscience.data.qld.gov.au/api/3/action/package_list>
 
+Search for a specific seismic survey
 <https://geoscience.data.qld.gov.au/api/3/action/package_show?id=ss095544>
 
+Search for new datasets and changes to existing data
 <https://geoscience.data.qld.gov.au/api/3/action/recently_changed_packages_activity_list>
+
+Search for all Petroleum Well Completion reports
+<https://geoscience.data.qld.gov.au/api/3/action/package_search?fq=+type:report%20+vocab_commodity:*petroleum%20+georesource_report_type:*well-completion-report>
+
+Search for all datasets about boreholes
+<https://geoscience.data.qld.gov.au/api/3/action/package_search?q=type:borehole> 
+
+Show a specific report
+<https://geoscience.data.qld.gov.au/api/3/action/package_show?q=type:report&id=cr072299>
+
+Search for all mineral permit final reports that became open file since beginning of November 2021
+<https://geoscience.data.qld.gov.au/api/3/action/package_search?fq=+georesource_report_type:*permit-report-final+open_file_date:[2021-11-01T00:00:00Z%20TO%20NOW]>
+
+
 
 ## Using Python
 
@@ -128,7 +168,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 |owner|Report owner|[GSQ Agent Roles](http://vocabs.gsq.digital/vocabulary/gsq-roles)|
 |was_generated_by|The survey that yielded the data||
 |earth_science_data_category|The field of research for the data|[Earth Science Data Category](http://vocabs.gsq.digital/vocabulary/earth-science-data-category)|
-|commodity|Commodities mentioned in the dataset|[Geoscience commodities](http://vocabs.gsq.digital/vocabulary/geo-commodities)|
+|vocab_commodity|Commodities mentioned in the dataset|[Geoscience commodities](http://vocabs.gsq.digital/vocabulary/geo-commodities)|
 |geologic_feature|Geological feature of interest (Report dataset and Dataset only)|[Geologic Feature Types](https://vocabs.gsq.digital/vocabulary/geofeatures)|
 |geoadmin_feature|Administrative feature of interest|[GeoAdmin Feature](https://vocabs.gsq.digital/vocabulary/geoadminfeatures)|
 |borehole_purpose|Borehole datasets only|[Borehole purpose](http://vocabs.gsq.digital/vocabulary/borehole-purpose)
@@ -161,7 +201,7 @@ All datasets in the Open Data Portal are defined by structured metadata. Use the
 
 ### report
 
-GeoJSONextent, commodity, dataset_completion_date, dataset_start_date, earth_science_data_category, extra:access_rights, extra:identifier, georesource_report_type, license_id, name, notes, open_file_date, owner, owner_org, private, resource_authority_permit, spatial, title, type, was_generated_by
+GeoJSONextent, vocab_commodity, dataset_completion_date, dataset_start_date, earth_science_data_category, extra:access_rights, extra:identifier, georesource_report_type, license_id, name, notes, open_file_date, owner, owner_org, private, resource_authority_permit, spatial, title, type, was_generated_by
 
 ### borehole
 
@@ -259,9 +299,11 @@ Lucene supports finding words are a within a specific distance away. To do a pro
 
 Range Queries allow one to match documents whose field(s) values are between the lower and upper bound specified by the Range Query. Range Queries can be inclusive or exclusive of the upper and lower bounds. Sorting is done lexicographically.
 
-    mod_date:[20020101 TO 20030101]
+    metadata_modified:[2020-11-01T00:00:00Z TO 2021-11-30T00:00:00Z]
 
-This will find documents whose mod_date fields have values between 20020101 and 20030101, inclusive. Note that Range Queries are not reserved for date fields. You could also use range queries with non-date fields:
+This will find documents whose metadata_modified fields have values between 2020-11-01 and 2020-11-30, inclusive. Note that the time component 'T00:00:00Z' should be included with the date.
+
+Range Queries are not reserved for date fields. You could also use range queries with non-date fields:
 
     title:{Adavale TO Camooweal}
 
@@ -373,7 +415,7 @@ This code repository's content are licensed under the [Creative Commons Attribut
 **Geological Survey of Quensland**  
 Department of Natural Resources, Mines and Energy  
 Queensland, Australia  
-<GSQOpenData@dnrme.qld.gov.au>  
+<GSQOpenData@resources.qld.gov.au>  
 
 *Author*:  
 **David Crosswell**  
