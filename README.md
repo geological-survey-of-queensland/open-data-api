@@ -412,13 +412,23 @@ This code repository's content are licensed under the [Creative Commons Attribut
 ## Contacts
 
 *System owner*:  
-**Geological Survey of Quensland**  
-Department of Natural Resources, Mines and Energy  
-Queensland, Australia  
-<GSQOpenData@resources.qld.gov.au>  
+**Mark Gordon**,
+Geological Survey of Queensland,
+Department of Resources,
+Brisbane, QLD, Australia,
+<mark.gordon@resources.qld.gov.au>  
 
-*Author*:  
-**David Crosswell**  
-Enterprise Architect  
-Cross-Lateral  
-<https://crosslateral.com.au>
+*Contributors*:  
+**Vance Kelly**,
+Principal Data Manager,
+Geological Survey of Queensland,
+Department of Resources,
+Brisbane, QLD, Australia,  
+<vance.kelly@resources.qld.gov.au>
+
+**Luke Hauck**,
+Geoscientist,
+Geological Survey of Queensland,
+Department of Resources,
+Brisbane, QLD, Australia,
+<luke.hauck@resources.qld.gov.au>
