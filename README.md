@@ -426,9 +426,3 @@ Department of Resources,
 Brisbane, QLD, Australia,  
 <vance.kelly@resources.qld.gov.au>
 
-**Luke Hauck**,
-Geoscientist,
-Geological Survey of Queensland,
-Department of Resources,
-Brisbane, QLD, Australia,
-<luke.hauck@resources.qld.gov.au>
