@@ -409,20 +409,10 @@ To escape these character use the \ before the character. For example to search 
 
 This code repository's content are licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), the deed of which is stored in this repository here: [LICENSE](LICENSE).
 
-## Contacts
 
-*System owner*:  
-**Mark Gordon**,
+## Contacts
+**Geoscience Information Team**,
 Geological Survey of Queensland,
 Department of Resources,
 Brisbane, QLD, Australia,
-<mark.gordon@resources.qld.gov.au>  
-
-*Contributors*:  
-**Vance Kelly**,
-Principal Data Manager,
-Geological Survey of Queensland,
-Department of Resources,
-Brisbane, QLD, Australia,  
-<vance.kelly@resources.qld.gov.au>
-
+<geological_info@resources.qld.gov.au>
